@@ -1,7 +1,7 @@
 import { Sequelize } from 'sequelize';
 import dotenv from 'dotenv';
 
-// dotenv.config();
+dotenv.config();
 
 // console.log("=== VARIABLES DB ===");
 console.log("DB_HOST:", process.env.DB_HOST);
