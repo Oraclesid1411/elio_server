@@ -15,7 +15,7 @@ import { souscategorieRouter } from './routes/souscategorie.js';
 import { villeRouter } from './routes/ville.js'; 
 import {elio_servicesRouter} from './routes/elio_services.js';
 
-dotenv.config(); // Chargement des variables d'environnement
+// dotenv.config(); // Chargement des variables d'environnement
 
 console.log("🎯 DB_HOST =", process.env.DB_HOST);
 const app = express();
