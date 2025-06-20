@@ -18,7 +18,7 @@ import {elio_servicesRouter} from './routes/elio_services.js';
 dotenv.config(); // Chargement des variables d'environnement
 
 const app = express();
-const port = process.env.PORT || 4001;
+const port = process.env.DB_PORT || 4001;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

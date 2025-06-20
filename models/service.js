@@ -10,11 +10,11 @@ export const Service = sequelize.define('Service', {
 
   userId: DataTypes.INTEGER,
   categorieId: DataTypes.INTEGER,
-  titre: DataTypes.STRING,
+  titre: DataTypes.STRING(255),
   description: DataTypes.TEXT,
   prix: { type: DataTypes.DECIMAL(10, 2), defaultValue: 0 },
   disponible: { type: DataTypes.BOOLEAN, defaultValue: true },
-  ville: DataTypes.STRING,
+  ville: DataTypes.STRING(255),
   images: DataTypes.JSON,
   est_vendu: { type: DataTypes.BOOLEAN, defaultValue: false }
 }, {
