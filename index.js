@@ -19,7 +19,8 @@ dotenv.config(); // Chargement des variables d'environnement
 
 console.log("🎯 DB_HOST =", process.env.DB_HOST);
 const app = express();
-const port = process.env.DB_PORT || 4001;
+// const port = process.env.DB_PORT || 4001;
+const port = process.env.PORT || 4001; // Railway injecte PORT
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -30,25 +31,16 @@ const allowedOrigins = [
   'https://elio-nine.vercel.app',
 ];
 
-app.use(cors({ origin: '*', credentials: true }));
-
-
-// app.use(cors({
-//   origin: function (origin, callback) {
-//     if (!origin || allowedOrigins.includes(origin)) {
-//       callback(null, true); // autorisé
-//     } else {
-//       callback(new Error('Not allowed by CORS')); // refusé
-//     }
-//   },
-//   credentials: true, // si tu utilises des cookies ou headers auth
-// }));
-// app.use(cors({
-//   origin: 'http://localhost:3000','https://elio-nine.vercel.app', // Origine autorisée
-//   //origin: 'http://77.37.125.3:3001', // Origine autorisée
-//   credentials: true, // Autoriser l'envoi des cookies
-// }));
-
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
 app.use(bodyParser.json());
 
 //POUR POUVOIR RECUPERER LES LOGS COTE SERVEUR
