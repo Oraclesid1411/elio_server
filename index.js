@@ -18,6 +18,7 @@ import {elio_servicesRouter} from './routes/elio_services.js';
 dotenv.config(); // Chargement des variables d'environnement
 
 console.log("🎯 DB_HOST =", process.env.DB_HOST);
+console.log(process.env);
 const app = express();
 // const port = process.env.DB_PORT || 4001;
 const port = process.env.PORT || 4001; // Railway injecte PORT
