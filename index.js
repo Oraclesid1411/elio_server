@@ -25,12 +25,26 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use("/imageprestataires", express.static(path.join(__dirname, "public/imageprestataires")));
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://elio-nine.vercel.app',
+];
 
 app.use(cors({
-  origin: 'http://localhost:3000','https://elio-nine.vercel.app', // Origine autorisée
-  //origin: 'http://77.37.125.3:3001', // Origine autorisée
-  credentials: true, // Autoriser l'envoi des cookies
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true); // autorisé
+    } else {
+      callback(new Error('Not allowed by CORS')); // refusé
+    }
+  },
+  credentials: true, // si tu utilises des cookies ou headers auth
 }));
+// app.use(cors({
+//   origin: 'http://localhost:3000','https://elio-nine.vercel.app', // Origine autorisée
+//   //origin: 'http://77.37.125.3:3001', // Origine autorisée
+//   credentials: true, // Autoriser l'envoi des cookies
+// }));
 
 app.use(bodyParser.json());
 
