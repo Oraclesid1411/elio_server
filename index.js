@@ -22,7 +22,7 @@ console.log("🎯 DB_HOST =", process.env.DB_HOST);
 const app = express();
 // const port = process.env.DB_PORT || 4001;
 // const port = process.env.PORT; // Railway injecte PORT
-const port = process.env.PORT || 4001;
+const port = process.env.PORT || 8080;
 console.log("port")
 console.log(port)
 
