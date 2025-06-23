@@ -5,7 +5,7 @@ import sequelize from '../config/database.js';
 import Ville from './ville.js';
 import Categorie from './categorie.js';
 
-export const User = sequelize.define('User', {
+export const User = sequelize.define('user', {
   nom: { type: DataTypes.STRING(255), allowNull: false},
   type_profil: { type: DataTypes.STRING(255), allowNull: true},
   email: { type: DataTypes.STRING(255), allowNull: false },
