@@ -21,7 +21,10 @@ console.log("🎯 DB_HOST =", process.env.DB_HOST);
 // console.log(process.env);
 const app = express();
 // const port = process.env.DB_PORT || 4001;
-const port = process.env.PORT; // Railway injecte PORT
+// const port = process.env.PORT; // Railway injecte PORT
+const port = process.env.PORT || 4001;
+console.log("port")
+console.log(port)
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
