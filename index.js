@@ -11,6 +11,7 @@ import authRoutes from './routes/auth.js';
 
 import './models/index.js'; // Import des modèles pour leur synchronisation
 import { categorieRouter } from './routes/categorie.js';
+import { servicesRouter } from './routes/services.js';
 import { souscategorieRouter } from './routes/souscategorie.js';
 import { villeRouter } from './routes/ville.js'; 
 import {elio_servicesRouter} from './routes/elio_services.js';
@@ -58,6 +59,7 @@ app.use((req, res, next) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/elio_services', elio_servicesRouter);
 app.use('/api/categorie', categorieRouter);
+app.use('/api/services', servicesRouter);
 app.use('/api/souscategorie', souscategorieRouter);
 app.use('/api/ville', villeRouter);
 
